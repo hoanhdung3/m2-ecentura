@@ -1,0 +1,15 @@
+.cart_free-product--container{
+    width: 75%;
+    max-width: 200px;
+}
+
+.cart_add-btn{
+    background-color: #B5D203;
+    width: 100%;
+    color: white;
+}
+
+.cart_add-btn p{
+    margin: 0;
+    font-size: 14px;
+}
