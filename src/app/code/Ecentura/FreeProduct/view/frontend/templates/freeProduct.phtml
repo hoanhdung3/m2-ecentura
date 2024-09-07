@@ -1,0 +1,18 @@
+<?php if($block->checkDisplay() != null): ?>
+    <div class="cart_free-product--container">
+        <div class="image-container">
+            <img 
+                class="free-product-image"
+                src="<?php echo $block->getFreeProductImgUrl() ?>" 
+            />
+        </div>
+        <form data-role="tocart-form" action="<?php echo $block->getProductCartUrl(); ?>" method="post">
+            <?php echo $block->getBlockHtml('formkey')?>
+            <button type="submit"
+                title="Add to Cart"
+                class="cart_add-btn">
+                <p>Gratis Loffel hinzufugen</p>
+            </button>
+        </form>
+    </div>
+<?php endif; ?>
