@@ -1,54 +1,79 @@
 <?php
  
 namespace Ecentura\CustomerProducts\Block\Adminhtml\Customeredit\Tab;
+
+use Magento\Backend\Block\Widget\Grid\Extended;
+use Magento\Backend\Block\Widget\Tab\TabInterface;
+use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory;
  
-class View extends \Magento\Backend\Block\Template implements \Magento\Ui\Component\Layout\Tabs\TabInterface
+class View extends Extended implements TabInterface
 {
-    protected $_template = 'tab/customtab_view.phtml';
- 
+    protected $_productCollectionFactory;
+
     public function __construct(
         \Magento\Backend\Block\Template\Context $context,
-        \Magento\Framework\Registry $registry,
+        \Magento\Backend\Helper\Data $backendHelper,
+        CollectionFactory $productCollectionFactory,
         array $data = []
     ) {
-        $this->_coreRegistry = $registry;
-        parent::__construct($context, $data);
+        $this->_productCollectionFactory = $productCollectionFactory;
+        parent::__construct($context, $backendHelper, $data);
     }
-    public function getCustomerId()
+
+    protected function _construct()
     {
-        return $this->_coreRegistry->registry(\Magento\Customer\Controller\RegistryConstants::CURRENT_CUSTOMER_ID);
+        parent::_construct();
+        $this->setId('product_grid');
+        $this->setDefaultSort('entity_id');
+        $this->setDefaultDir('ASC');
+        $this->setUseAjax(false);
+        $this->setSaveParametersInSession(true);
     }
+
+    protected function _prepareCollection()
+    {
+        $collection = $this->_productCollectionFactory->create();
+        $collection->addAttributeToSelect('name');
+        $this->setCollection($collection);
+        return parent::_prepareCollection();
+    }
+
+    protected function _prepareColumns()
+    {
+        $this->addColumn('name', [
+            'header' => __('Name'),
+            'index'  => 'name',
+        ]);
+
+        $this->addColumn('product_url', [
+            'header'   => __('Product URL'),
+            'filter'   => false,
+            'sortable' => false,
+            'renderer' => \Ecentura\CustomerProducts\Block\Adminhtml\Customeredit\Tab\Renderer\ProductUrl::class,
+        ]);
+    
+
+        return parent::_prepareColumns();
+    }
+
     public function getTabLabel()
     {
         return __('Products');
     }
+
     public function getTabTitle()
     {
         return __('Products');
     }
- 
+
     public function canShowTab()
     {
-        if ($this->getCustomerId()) {
-            return true;
-        }
-        return false;
-    }
-    public function isHidden()
-    {
-        if ($this->getCustomerId()) {
-            return false;
-        }
         return true;
     }
-    public function getTabClass()
+
+    public function isHidden()
     {
-        return '';
-    }
- 
-    public function getTabUrl()
-    {
-        return '';
+        return false;
     }
     public function isAjaxLoaded()
     {
