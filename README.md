@@ -8,7 +8,6 @@ https://www.awesomescreenshot.com/image/50491534?key=e14a2a2f18ffba91ca469f300f6
 Hiện tại ở phần này em đã tạo được configuration fields cho pdf và image file. Em đang stuck trong việc attach cùng invoice email.
 
 (*) C: Module: src/app/code/Ecentura/CustomerProducts
-https://www.awesomescreenshot.com/image/50491603?key=17e2685173bbf20430d5793c92ebbc98
-Hiện tại ở phần này em đã tạo được 1 tab trong customer detail. Những phần phía sau em sẽ tóm tắt cách xử lý trước và em sẽ process tiếp sau khi giải quyết xong test B.
-- Tạo product grid: phần này em sẽ tạo 1 block cho product grid, extend từ Core grid và lấy data từ product resource model. Filter và pagination có thể add thêm trong layout xml.
+https://www.awesomescreenshot.com/image/50495617?key=6ae7948351c34a3cbb5654d3b2e64b18
+Hiện tại ở phần này em đã tạo được 1 tab trong customer detail và add được products grid vào trong tab này. Những phần phía sau em sẽ tóm tắt cách xử lý trước và em sẽ process tiếp sau khi giải quyết xong test B.
 - Save data to customer attribute: phần này em sẽ tạo 1 customer attribute mới để lưu products ID vào. 
