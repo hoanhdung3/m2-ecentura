@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="sales_email" translate="label" type="text" sortOrder="301" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Sales Emails</label>
+            <tab>sales</tab>
+            <group id="invoice_attachment" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Invoice Attachment</label>
+                <field id="pdf_file" translate="label" type="Magento\Config\Block\System\Config\Form\Field\File" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>PDF File</label>
+                    <backend_model>Ecentura\FileAttachment\Model\Config\Backend\CustomFileType</backend_model>
+                    <base_url type="media" scope_info="1">upload</base_url>
+                </field>
+                <field id="img_file" translate="label" type="Magento\Config\Block\System\Config\Form\Field\Image" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>PNG/JPG File</label>
+                    <backend_model>Ecentura\FileAttachment\Model\Config\Backend\CustomImageType</backend_model>
+                    <base_url type="media" scope_info="1">upload</base_url>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
