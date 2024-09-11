@@ -1,0 +1,14 @@
+<input type="hidden" name="selected_products" id="selected_products" value="" form="customer_form" />
+<script>
+    require(['jquery'], function ($) {
+        $(document).ready(function () {
+            $('#product_grid').on('change', 'input[type="checkbox"]', function () {
+                var selectedProducts = [];
+                $('#product_grid input[type="checkbox"]:checked').each(function () {
+                    selectedProducts.push($(this).val());
+                });
+                $('#selected_products').val(selectedProducts.join(','));
+            });
+        });
+    });
+</script>
