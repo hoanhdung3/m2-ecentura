@@ -8,6 +8,7 @@
                     <argument name="tab_label" xsi:type="string" translate="true"> Custom Tab Label</argument>
                     <argument name="sort_order" xsi:type="number">100</argument>
                 </arguments>
+                <block class="Magento\Framework\View\Element\Template" name="selected_products" template="Ecentura_CustomerProducts::customer/form/hidden.phtml"/>
             </block>
         </referenceBlock>
     </body>

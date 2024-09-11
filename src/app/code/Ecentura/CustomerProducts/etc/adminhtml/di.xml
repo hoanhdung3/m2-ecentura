@@ -7,4 +7,7 @@
             </argument>
         </arguments>
     </type>
+    <type name="Magento\Customer\Controller\Adminhtml\Index\Save">
+        <plugin name="save_selected_products_plugin" type="Ecentura\CustomerProducts\Plugin\CustomerSavePlugin" />
+    </type>
 </config>
