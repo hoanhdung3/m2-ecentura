@@ -40,6 +40,18 @@ class View extends Extended implements TabInterface
 
     protected function _prepareColumns()
     {
+        $this->addColumn('in_products', [
+            'type'   => 'checkbox',
+            'header' => __('Select'),
+            'field_name' => 'checbox', 
+            'index'  => 'entity_id', 
+        ]);
+
+        $this->addColumn('entity_id', [
+            'header' => __('ID'),
+            'index'  => 'entity_id',
+        ]);
+        
         $this->addColumn('name', [
             'header' => __('Name'),
             'index'  => 'name',
